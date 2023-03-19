@@ -641,7 +641,7 @@ footer {
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 40px;
+  bottom: 120px;
   right: 40px;
   background-color: #0A66C2;
   color: #fff;
@@ -649,7 +649,7 @@ footer {
   text-align: center;
   font-size: 40px;
   z-index: 250;
-  top: 680px;  
+  /* top: 680px;   */
 
 }
 .my-float {
@@ -892,6 +892,6 @@ footer {
 
 @media (min-width: 768px) {
   .float2  {
-    top: 780px; 
+    bottom: 150px;
   }
 }
