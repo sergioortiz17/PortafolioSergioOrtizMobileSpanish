@@ -624,7 +624,7 @@ footer {
 }
 
 /*************************** WHATSAPP FLOAT */
-.float {
+.float1 {
   position: fixed;
   width: 60px;
   height: 60px;
@@ -637,7 +637,21 @@ footer {
   font-size: 30px;
   z-index: 100;
 }
+.float2 {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #0A66C2;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 40px;
+  z-index: 200;
+  top: 680px;  
 
+}
 .my-float {
   margin-top: 16px;
 }
@@ -873,5 +887,24 @@ footer {
   .col-md-4 {
     display: inline-flex;
     width: 33%;
+  }
+}
+
+/* .container1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.container2 {
+  position: relative;
+  top: 2000px; /* ajusta esta posición según sea necesario */
+  /* left: 0;
+  z-index: 1;
+}  */
+@media (min-width: 768px) {
+  .float2  {
+    top: 460px; 
   }
 }
