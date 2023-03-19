@@ -890,21 +890,8 @@ footer {
   }
 }
 
-/* .container1 {
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-
-.container2 {
-  position: relative;
-  top: 2000px; /* ajusta esta posición según sea necesario */
-  /* left: 0;
-  z-index: 1;
-}  */
 @media (min-width: 768px) {
   .float2  {
-    top: 460px; 
+    top: 780px; 
   }
 }
