@@ -14,7 +14,10 @@ export const renderNav = (activePage) => {
   if (!nav) return;
   nav.innerHTML = `
     <a href="index.html" class="nav-logo">sergio.ortiz</a>
-    <ul class="nav-links">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-menu">
       ${NAV_LINKS.map(({ label, href, cta }) => {
         const isActive = label === activePage;
         const cls = cta ? 'nav-cta' : isActive ? 'nav-active' : '';
@@ -22,6 +25,21 @@ export const renderNav = (activePage) => {
       }).join('')}
     </ul>
   `;
+
+  const btn  = document.getElementById('nav-hamburger');
+  const menu = document.getElementById('nav-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('nav-open');
+    btn.classList.toggle('is-open');
+  });
+
+  menu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      menu.classList.remove('nav-open');
+      btn.classList.remove('is-open');
+    })
+  );
 };
 
 export const renderFooter = () => {

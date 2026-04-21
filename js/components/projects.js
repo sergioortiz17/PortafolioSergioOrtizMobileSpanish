@@ -14,9 +14,6 @@ const projectCard = ({ type, title, description, tech }) => `
 export const render = (container, { projects }) => {
   container.innerHTML = `
     <div class="container">
-      <p class="section-label fade-in">// selected work</p>
-      <h2 class="section-title fade-in">Projects &amp; <span>contributions</span></h2>
-      <p class="section-desc fade-in">A selection of work spanning DevOps, QA, and mobile development.</p>
       <div class="projects-grid">
         ${projects.map(projectCard).join('')}
       </div>

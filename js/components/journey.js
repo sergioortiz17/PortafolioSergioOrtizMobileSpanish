@@ -1,24 +1,22 @@
-const companyLogo = ({ logo, logoInitials, logoGradient, role }) => {
+const companyLogo = ({ logo, logoInitials, logoGradient, role, companyUrl }) => {
+  const wrap = (inner) => companyUrl
+    ? `<a href="${companyUrl}" target="_blank" rel="noopener noreferrer" class="company-logo-link">${inner}</a>`
+    : inner;
+
   if (logo) {
-    return `
-      <div class="company-logo">
-        <img src="${logo}" alt="${logoInitials}" loading="lazy" />
-      </div>`;
+    return wrap(`<div class="company-logo"><img src="${logo}" alt="${logoInitials}" loading="lazy" /></div>`);
   }
-  return `
-    <div class="company-logo" style="background: ${logoGradient}" title="${role}">
-      <span>${logoInitials}</span>
-    </div>`;
+  return wrap(`<div class="company-logo" style="background: ${logoGradient}" title="${role}"><span>${logoInitials}</span></div>`);
 };
 
 const timelineItem = (item) => {
   const { period, role, company, tech, current,
-          logo, logoInitials, logoGradient, description } = item;
+          logo, logoInitials, logoGradient, companyUrl, description } = item;
   return `
     <div class="timeline-item ${current ? 'timeline-current' : ''} fade-in">
       <div class="timeline-dot"></div>
       <div class="timeline-header">
-        ${companyLogo({ logo, logoInitials, logoGradient, role })}
+        ${companyLogo({ logo, logoInitials, logoGradient, role, companyUrl })}
         <div class="timeline-header-body">
           <div class="timeline-header-text">
             <p class="timeline-period">${period}</p>
