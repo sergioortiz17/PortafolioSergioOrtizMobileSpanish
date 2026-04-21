@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:catalog-education.oracle.com)",
+      "WebFetch(domain:www.credly.com)",
+      "Read(//c/Users/vene/Documents/CV/**)",
+      "Bash(gh --version)",
+      "Bash(git --version)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\vene\\Documents\\CV"
+    ]
+  }
+}

@@ -1,74 +1,23 @@
-// Variables
+import { heroTags, journey, certifications } from './data/portfolio.js';
+import { render as renderHero }           from './components/hero.js';
+import { render as renderJourney }        from './components/journey.js';
+import { render as renderCertifications } from './components/certifications.js';
+import { render as renderContact }        from './components/contact.js';
+import { initScrollAnimations, initNavScroll } from './utils/animations.js';
+import { renderNav, renderFooter } from './utils/nav.js';
+import { qs } from './utils/dom.js';
+import { personal } from './data/portfolio.js';
 
-let nav = document.getElementById("nav");
-let menu = document.getElementById("enlaces");
-let abrir = document.getElementById("open");
-let botones = document.getElementsByClassName("btn-header");
-let cerrado = true;
+const init = () => {
+  renderNav('Home');
+  renderHero(qs('#hero'),                     { personal, heroTags });
+  renderJourney(qs('#journey'),               { journey });
+  renderCertifications(qs('#certifications'), { certifications });
+  renderContact(qs('#contact'),               { personal });
+  renderFooter();
 
-// AOS
-AOS.init();
+  initScrollAnimations();
+  initNavScroll();
+};
 
-function menus() {
-  let Desplazamiento_Actual = window.pageYOffset;
-
-  if (Desplazamiento_Actual <= 300) {
-    nav.classList.remove("nav2");
-    nav.className = "nav1";
-    nav.style.transition = "1s";
-    menu.style.top = "80px";
-    abrir.style.color = "#fff"; /* color del menu hamburguesa */
-  } else {
-    nav.classList.remove("nav1");
-    nav.className = "nav2";
-    nav.style.transition = "1s";
-    menu.style.top = "100px";
-    abrir.style.color = "#000";
-  }
-}
-
-function apertura() {
-  if (cerrado) {
-    menu.style.width = "100vw";
-    cerrado = false;
-  } else {
-    menu.style.width = "0%";
-    menu.style.overflow = "hidden";
-    cerrado = true;
-  }
-}
-
-window.addEventListener("load", function () {
-  $("#onload").fadeOut();
-  $("body").removeClass("hidden");
-  menus();
-});
-
-window.addEventListener("click", function (e) {
-  if (cerrado == false) {
-    let span = document.querySelector("span");
-
-    /* si hago click en otro lado me oculta el menu */
-    if (e.target !== span && e.target !== abrir) {
-      menu.style.width = "0%";
-      menu.style.overflow = "hidden";
-      cerrado = true;
-    }
-  }
-});
-
-window.addEventListener("scroll", function () {
-  menus();
-});
-
-window.addEventListener("resize", function () {
-  if (screen.width >= 700) {
-    cerrado = true;
-    menu.style.removeProperty("overflow");
-    menu.style.removeProperty("width");
-  }
-});
-
-abrir.addEventListener("click", function () {
-  apertura();
-});
+init();
